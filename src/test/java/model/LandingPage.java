@@ -20,6 +20,6 @@ public class LandingPage {
     }
 
     public WebElement getLinkFormAuthentication(){
-        return driver.findElement(linkABTesting);
+        return driver.findElement(linkFormAuthentication);
     }
 }
