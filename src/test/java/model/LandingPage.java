@@ -8,14 +8,14 @@ public class LandingPage {
 
     public WebDriver driver;
 
-    By abTestingItem = By.xpath("//a[@href='/abtest']");
+    By linkABTesting = By.xpath("//a[@href='/abtest']");
 
     public LandingPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public WebElement getAbTestingItem() {
-        return driver.findElement(abTestingItem);
+    public WebElement getLinkABTesting() {
+        return driver.findElement(linkABTesting);
     }
 
 }
