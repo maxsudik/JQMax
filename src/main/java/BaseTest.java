@@ -20,6 +20,7 @@ public class BaseTest {
         String browser = properties.getProperty("browser");
 
         if (browser.equals("chrome")) {
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
         } else if (browser.equals("edge")) {
             WebDriverManager.edgedriver().setup();
@@ -31,6 +32,7 @@ public class BaseTest {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         }
+        //TODO replace deprecated implicitlyWait
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
     }
