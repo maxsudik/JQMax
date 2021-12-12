@@ -17,5 +17,4 @@ public class LandingPage {
     public WebElement getLinkABTesting() {
         return driver.findElement(linkABTesting);
     }
-
 }
