@@ -1,12 +1,19 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 public class BaseTest {
+    WebDriver driver;
 
     public void initializeDriver() throws IOException {
 
-        //TODO add webdriver manager
         Properties properties = new Properties();
         FileInputStream file = new FileInputStream("src/main/resources/local.properties");
         properties.load(file);
@@ -14,17 +21,18 @@ public class BaseTest {
 
         if (browser.equals("chrome")) {
 
-            //TODO define condition
+            driver = new ChromeDriver();
         } else if (browser.equals("edge")) {
-            //TODO define condition
+            WebDriverManager.edgedriver().setup();
+            driver = new EdgeDriver();
 
         } else if (browser.equals("safari")) {
-            //TODO define condition
+            WebDriverManager.safaridriver().setup();
+            driver = new SafariDriver();
 
         } else if (browser.equals("firefox")) {
-            //TODO define condition
-
+            WebDriverManager.firefoxdriver().setup();
+            driver = new FirefoxDriver();
         }
-
     }
 }
