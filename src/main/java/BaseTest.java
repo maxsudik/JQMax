@@ -4,15 +4,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     WebDriver driver;
 
-    public void initializeDriver() throws IOException {
+    public WebDriver initializeDriver() throws IOException {
 
         Properties properties = new Properties();
         FileInputStream file = new FileInputStream("src/main/resources/local.properties");
@@ -20,19 +20,18 @@ public class BaseTest {
         String browser = properties.getProperty("browser");
 
         if (browser.equals("chrome")) {
-
             driver = new ChromeDriver();
         } else if (browser.equals("edge")) {
             WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
-
         } else if (browser.equals("safari")) {
             WebDriverManager.safaridriver().setup();
             driver = new SafariDriver();
-
         } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         }
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        return driver;
     }
 }
