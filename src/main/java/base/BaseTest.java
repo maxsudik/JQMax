@@ -1,12 +1,16 @@
 package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -39,5 +43,12 @@ public class BaseTest {
         //TODO replace deprecated implicitlyWait
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
+    }
+
+    public void getScreenshot(String testMethodName, WebDriver driver) throws IOException {
+        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+        File file = takesScreenshot.getScreenshotAs(OutputType.FILE);
+        String destinationFile = System.getProperty("user.dir") + "/reports/" + testMethodName + ".png";
+        FileUtils.copyFile(file, new File(destinationFile));
     }
 }
