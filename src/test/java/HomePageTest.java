@@ -3,6 +3,7 @@ import model.LandingPage;
 import model.LoginPage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -21,10 +22,15 @@ public class HomePageTest extends BaseTest {
         return data;
     }
 
-    @Test(dataProvider = "getData")
-    public void basePageNavigation(String userName, String password) throws IOException {
+    @BeforeTest
+    public void initializeTest() throws IOException {
+
         driver = initializeDriver();
         driver.get(properties.getProperty("url"));
+    }
+
+    @Test(dataProvider = "getData")
+    public void basePageNavigation(String userName, String password) throws IOException {
 
         LandingPage landingPage = new LandingPage(driver);
         LoginPage loginPage = new LoginPage(driver);
