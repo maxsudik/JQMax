@@ -3,9 +3,7 @@ import model.LandingPage;
 import model.LoginPage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 
@@ -22,11 +20,16 @@ public class HomePageTest extends BaseTest {
         return data;
     }
 
-    @BeforeTest
+    @BeforeMethod
     public void initializeTest() throws IOException {
 
         driver = initializeDriver();
         driver.get(properties.getProperty("url"));
+    }
+
+    @AfterMethod
+    public void stopDriver(){
+        driver.quit();
     }
 
     @Test(dataProvider = "getData")
