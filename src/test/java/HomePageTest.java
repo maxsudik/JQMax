@@ -1,6 +1,8 @@
 import base.BaseTest;
 import model.LandingPage;
 import model.LoginPage;
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -31,5 +33,6 @@ public class HomePageTest extends BaseTest {
         loginPage.getFieldUserName().sendKeys(userName);
         loginPage.getFieldPassword().sendKeys(password);
         loginPage.getButtonLogin().click();
+        Assert.assertTrue(driver.findElement(By.xpath("//h4[text()='Welcome to the Secure Area. When you are done click logout below.']")).isDisplayed());
     }
 }
