@@ -8,8 +8,8 @@ public class LandingPage {
 
     public WebDriver driver;
 
-    By linkABTesting = By.xpath("//a[@href='/abtest']");
-    By linkFormAuthentication = By.xpath("//a[@href='/login']");
+    private By linkABTesting = By.xpath("//a[@href='/abtest']");
+    private By linkFormAuthentication = By.xpath("//a[@href='/login']");
 
     public LandingPage(WebDriver driver) {
         this.driver = driver;
