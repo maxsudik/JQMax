@@ -45,10 +45,11 @@ public class BaseTest {
         return driver;
     }
 
-    public void getScreenshot(String testMethodName, WebDriver driver) throws IOException {
+    public String getScreenshot(String testMethodName, WebDriver driver) throws IOException {
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File file = takesScreenshot.getScreenshotAs(OutputType.FILE);
         String destinationFile = System.getProperty("user.dir") + "/reports/" + testMethodName + ".png";
         FileUtils.copyFile(file, new File(destinationFile));
+        return destinationFile;
     }
 }
