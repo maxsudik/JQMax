@@ -24,7 +24,7 @@ public class HomePageTest extends BaseTest {
     @Test(dataProvider = "getData")
     public void basePageNavigation(String userName, String password) throws IOException {
         driver = initializeDriver();
-        driver.get("http://the-internet.herokuapp.com/");
+        driver.get(properties.getProperty("url"));
 
         LandingPage landingPage = new LandingPage(driver);
         LoginPage loginPage = new LoginPage(driver);
