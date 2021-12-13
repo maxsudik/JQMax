@@ -4,4 +4,4 @@
 target/
 *.DS_Store
 *.log
-*.png
+reports/
