@@ -14,10 +14,11 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     public WebDriver driver;
+    public Properties properties;
 
     public WebDriver initializeDriver() throws IOException {
 
-        Properties properties = new Properties();
+        properties = new Properties();
         FileInputStream file = new FileInputStream("src/main/resources/local.properties");
         properties.load(file);
         String browser = properties.getProperty("browser");
