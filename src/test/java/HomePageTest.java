@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class HomePageTest extends BaseTest {
     public static Logger log = LogManager.getLogger(BaseTest.class.getName());
-    public WebDriver driver;
+    //public WebDriver driver;
 
     @BeforeMethod
     public void initializeTest() throws IOException {
