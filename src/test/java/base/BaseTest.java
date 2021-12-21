@@ -38,7 +38,7 @@ public class BaseTest {
     @BeforeMethod
     public void setup() throws IOException {
         properties = new Properties();
-        FileInputStream file = new FileInputStream("src/main/resources/local.properties");
+        FileInputStream file = new FileInputStream("src/test/resources/local.properties");
         properties.load(file);
         String browser = properties.getProperty("browser");
 
