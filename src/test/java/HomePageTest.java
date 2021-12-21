@@ -1,32 +1,15 @@
 import base.BaseTest;
 import model.LandingPage;
 import model.LoginPage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 
 import java.io.IOException;
 
 
 public class HomePageTest extends BaseTest {
-    public static Logger log = LogManager.getLogger(BaseTest.class.getName());
-    //public WebDriver driver;
 
-    @BeforeMethod
-    public void initializeTest() throws IOException {
-
-        driver = initializeDriver();
-        driver.get(properties.getProperty("url"));
-        log.info("Driver successfully initialized");
-    }
-
-    @AfterTest
-    public void stopDriver() {
-        driver.quit();
-    }
 
     @Test
     public void basePageNavigation() throws IOException {
