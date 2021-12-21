@@ -11,7 +11,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -29,21 +28,23 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
     }
 
-    public Properties properties;
+    //public Properties properties;
     protected WebDriver driver;
+
+//    @BeforeTest
+//    public void readProps() throws IOException {
+//        properties = new Properties();
+//        FileInputStream file = new FileInputStream("src/test/resources/local.properties");
+//        properties.load(file);
+//    }
 
 
     @BeforeMethod
     public void setup() throws IOException {
-        properties = new Properties();
-        FileInputStream file = new FileInputStream("src/test/resources/local.properties");
-        properties.load(file);
-        String browser = properties.getProperty("browser");
 
         driver = new ChromeDriver(CHROME_OPTIONS);
-        driver.get(properties.getProperty("url"));
+        driver.get("http://the-internet.herokuapp.com/");
         //log.info("Driver successfully initialized");
-
         //TODO replace deprecated implicitlyWait
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
