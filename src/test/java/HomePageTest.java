@@ -15,17 +15,6 @@ public class HomePageTest extends BaseTest {
     public static Logger log = LogManager.getLogger(BaseTest.class.getName());
     public WebDriver driver;
 
-    @DataProvider
-    public Object[][] getData() {
-        Object[][] data = new Object[2][2];
-        data[0][0] = "invalidlogin@gmai.com";
-        data[0][1] = "Invalid Password";
-
-        data[1][0] = "tomsmith";
-        data[1][1] = "SuperSecretPassword!";
-        return data;
-    }
-
     @BeforeMethod
     public void initializeTest() throws IOException {
 
@@ -39,15 +28,15 @@ public class HomePageTest extends BaseTest {
         driver.quit();
     }
 
-    @Test(dataProvider = "getData")
-    public void basePageNavigation(String userName, String password) throws IOException {
+    @Test
+    public void basePageNavigation() throws IOException {
 
         LandingPage landingPage = new LandingPage(driver);
         LoginPage loginPage = new LoginPage(driver);
 
         landingPage.getLinkFormAuthentication().click();
-        loginPage.getFieldUserName().sendKeys(userName);
-        loginPage.getFieldPassword().sendKeys(password);
+        loginPage.getFieldUserName().sendKeys("tomsmith");
+        loginPage.getFieldPassword().sendKeys("SuperSecretPassword!");
         loginPage.getButtonLogin().click();
         Assert.assertTrue(driver.findElement(By.xpath("//h4[text()='Welcome to the Secure Area. When you are done click logout below.']")).isDisplayed());
         log.info("Test validation is completed");
