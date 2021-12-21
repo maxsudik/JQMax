@@ -2,8 +2,6 @@ package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
     private static final ChromeOptions CHROME_OPTIONS;
-    public static Logger log = LogManager.getLogger(BaseTest.class.getName());
+    //public static Logger log = LogManager.getLogger(BaseTest.class.getName());
 
     static {
         CHROME_OPTIONS = new ChromeOptions();
@@ -44,7 +42,7 @@ public class BaseTest {
 
         driver = new ChromeDriver(CHROME_OPTIONS);
         driver.get(properties.getProperty("url"));
-        log.info("Driver successfully initialized");
+        //log.info("Driver successfully initialized");
 
         //TODO replace deprecated implicitlyWait
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

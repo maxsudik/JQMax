@@ -22,6 +22,6 @@ public class HomePageTest extends BaseTest {
         loginPage.getFieldPassword().sendKeys("SuperSecretPassword!");
         loginPage.getButtonLogin().click();
         Assert.assertTrue(driver.findElement(By.xpath("//h4[text()='Welcome to the Secure Area. When you are done click logout below.']")).isDisplayed());
-        log.info("Test validation is completed");
+        //log.info("Test validation is completed");
     }
 }
