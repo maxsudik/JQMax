@@ -30,3 +30,4 @@ jobs:
       - name: Maven test
         id: test
         run: mvn test
+        CHROME_OPTIONS: --disable-gpu;--no-sandbox;--disable-dev-shm-usage;--headless

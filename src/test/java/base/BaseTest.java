@@ -12,7 +12,6 @@ import org.testng.annotations.BeforeMethod;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
@@ -22,25 +21,22 @@ public class BaseTest {
 
     static {
         CHROME_OPTIONS = new ChromeOptions();
-        CHROME_OPTIONS.addArguments("--disable-gpu"); // applicable to windows os only
-        CHROME_OPTIONS.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-        CHROME_OPTIONS.addArguments("--no-sandbox"); // Bypass OS security model
+        String options = System.getenv("CHROME_OPTIONS");
+        if (options != null) {
+            for (String argument : options.split(";")) {
+                CHROME_OPTIONS.addArguments(argument);
+            }
+        }
+        CHROME_OPTIONS.addArguments("--window-size=1920,1080");
+
         WebDriverManager.chromedriver().setup();
     }
 
     //public Properties properties;
     protected WebDriver driver;
 
-//    @BeforeTest
-//    public void readProps() throws IOException {
-//        properties = new Properties();
-//        FileInputStream file = new FileInputStream("src/test/resources/local.properties");
-//        properties.load(file);
-//    }
-
-
     @BeforeMethod
-    public void setup() throws IOException {
+    public void setup() {
 
         driver = new ChromeDriver(CHROME_OPTIONS);
         driver.get("http://the-internet.herokuapp.com/");
