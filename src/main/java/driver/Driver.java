@@ -13,14 +13,18 @@ import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class Driver {
-    public static WebDriver driver;
+public final class Driver {
+
     public static Properties properties;
     public static Logger log = LogManager.getLogger("logger");
     static ChromeOptions options = new ChromeOptions();
+    private static WebDriver driver;
+
+    private Driver() {
+    }
 
     public static void initializeDriver() throws IOException {
-        if (Objects.isNull(driver)) {
+        if (Objects.isNull(DriverManager.getDriver())) {
             options.addArguments("--disable-gpu");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
@@ -29,21 +33,23 @@ public class Driver {
 
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(options);
+            DriverManager.setDriver(driver);
 
             //TODO replace deprecated implicitlyWait
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             properties = new Properties();
             FileInputStream file = new FileInputStream("src/main/resources/local.properties");
             properties.load(file);
-            driver.get(properties.getProperty("url"));
+            DriverManager.getDriver().get(properties.getProperty("url"));
             log.info("driver.Driver successfully initialized");
+
         }
     }
 
     public static void quitDriver() {
-        if (Objects.nonNull(driver)) {
-            driver.quit();
-            driver = null;
+        if (Objects.nonNull(DriverManager.getDriver())) {
+            DriverManager.getDriver().quit();
+            DriverManager.unload();
         }
     }
 }
