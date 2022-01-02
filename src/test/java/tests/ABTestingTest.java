@@ -11,7 +11,7 @@ public final class ABTestingTest extends BaseTest {
     }
 
     @Test
-    public void verifyABTestPageTitle() throws InterruptedException {
+    public void verifyABTestPageTitle() {
         DriverManager.getDriver().findElement(By.xpath("//a[@href='/abtest']")).click();
         String abTestPageTitle = DriverManager.getDriver().findElement(By.xpath("//h3")).getText();
         Assert.assertEquals(abTestPageTitle, "A/B Test Variation 1");
