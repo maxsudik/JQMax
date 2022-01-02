@@ -31,7 +31,7 @@ public final class Driver {
 
             //TODO replace deprecated implicitlyWait
             DriverManager.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            DriverManager.getDriver().get(ReadPropertyFile.getValue("url"));
+            DriverManager.getDriver().get(ReadPropertyFile.get("url"));
             log.info("driver.Driver successfully initialized");
 
         }
