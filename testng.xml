@@ -4,9 +4,10 @@
     <listeners>
         <listener class-name="screenshot.Listeners"></listener>
     </listeners>
-    <test verbose="2" preserve-order="true" name="/Users/maxsudik/IdeaProjects/JQMax/src/test/java/tests.HomePageTest.java">
+    <test name="Test" thread-count="2"  parallel="methods">
         <classes>
             <class name="tests.HomePageTest"></class>
+            <class name="tests.ABTestingTest"></class>
         </classes>
     </test>
 </suite>
