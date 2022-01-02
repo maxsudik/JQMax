@@ -1,5 +1,6 @@
 package tests;
 
+import driver.Driver;
 import model.LandingPage;
 import model.LoginPage;
 import org.openqa.selenium.By;
@@ -10,7 +11,10 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 
-public class HomePageTest extends BaseTest {
+public final class HomePageTest extends BaseTest {
+
+    private HomePageTest() {
+    }
 
     @DataProvider
     public Object[][] getData() {
@@ -26,14 +30,14 @@ public class HomePageTest extends BaseTest {
     @Test(dataProvider = "getData")
     public void basePageNavigation(String userName, String password) throws IOException {
 
-        LandingPage landingPage = new LandingPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
+        LandingPage landingPage = new LandingPage(Driver.driver);
+        LoginPage loginPage = new LoginPage(Driver.driver);
 
         landingPage.getLinkFormAuthentication().click();
         loginPage.getFieldUserName().sendKeys(userName);
         loginPage.getFieldPassword().sendKeys(password);
         loginPage.getButtonLogin().click();
-        Assert.assertTrue(driver.findElement(By.xpath("//h4[text()='Welcome to the Secure Area. When you are done click logout below.']")).isDisplayed());
-        log.info("Test validation is completed");
+        Assert.assertTrue(Driver.driver.findElement(By.xpath("//h4[text()='Welcome to the Secure Area. When you are done click logout below.']")).isDisplayed());
+        Driver.log.info("Test validation is completed");
     }
 }
