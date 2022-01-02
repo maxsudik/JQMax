@@ -1,4 +1,4 @@
-package base;
+package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;

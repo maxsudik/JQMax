@@ -4,9 +4,9 @@
     <listeners>
         <listener class-name="screenshot.Listeners"></listener>
     </listeners>
-    <test verbose="2" preserve-order="true" name="/Users/maxsudik/IdeaProjects/JQMax/src/test/java/HomePageTest.java">
+    <test verbose="2" preserve-order="true" name="/Users/maxsudik/IdeaProjects/JQMax/src/test/java/tests.HomePageTest.java">
         <classes>
-            <class name="HomePageTest"></class>
+            <class name="tests.HomePageTest"></class>
         </classes>
     </test>
 </suite>

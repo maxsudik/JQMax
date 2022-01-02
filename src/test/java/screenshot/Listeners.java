@@ -1,6 +1,6 @@
 package screenshot;
 
-import base.BaseTest;
+import tests.BaseTest;
 import base.ExtentReporterNG;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
