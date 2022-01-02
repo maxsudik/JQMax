@@ -28,7 +28,7 @@ public final class HomePageTest extends BaseTest {
     }
 
     @Test(dataProvider = "getData")
-    public void basePageNavigation(String userName, String password) throws IOException {
+    public void basePageNavigation(String userName, String password){
 
         LandingPage landingPage = new LandingPage(Driver.driver);
         LoginPage loginPage = new LoginPage(Driver.driver);
