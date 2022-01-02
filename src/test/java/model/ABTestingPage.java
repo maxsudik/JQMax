@@ -8,7 +8,7 @@ public class ABTestingPage {
 
     public WebDriver driver;
 
-    private By pageTitle = By.xpath("//h3[text()='A/B Test Variation 1']");
+    private By pageTitle = By.xpath("//h3");
     private By pageText = By.xpath("//p");
 
     public ABTestingPage(WebDriver driver) {
