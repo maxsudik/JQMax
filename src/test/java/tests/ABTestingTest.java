@@ -1,36 +1,26 @@
 package tests;
 
-import driver.Driver;
-import model.ABTestingPage;
-import model.LandingPage;
+import driver.DriverManager;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public final class ABTestingTest extends BaseTest{
-
-    private final String expectedTitle = "A/B Test Variation 1";
-    private final String expectedPageText = "Also known as split testing. This is a way in which businesses are able to simultaneously test and learn different versions of a page to see which text and/or functionality works best towards a desired outcome (e.g. a user action such as a click-through).";
+public final class ABTestingTest extends BaseTest {
 
     private ABTestingTest() {
     }
 
     @Test
-    public void verifyABTestPageTitle() {
-        LandingPage landingPage = new LandingPage(Driver.driver);
-        ABTestingPage abTestingPage = new ABTestingPage(Driver.driver);
-
-        landingPage.getLinkABTesting().click();
-        String abTestPageTitle = abTestingPage.getABTestPageTitle().getText();
-        Assert.assertEquals(abTestPageTitle, expectedTitle);
+    public void verifyABTestPageTitle() throws InterruptedException {
+        DriverManager.getDriver().findElement(By.xpath("//a[@href='/abtest']")).click();
+        String abTestPageTitle = DriverManager.getDriver().findElement(By.xpath("//h3")).getText();
+        Assert.assertEquals(abTestPageTitle, "A/B Test Variation 1");
     }
 
     @Test
     public void verifyABTestPageText() {
-        LandingPage landingPage = new LandingPage(Driver.driver);
-        ABTestingPage abTestingPage = new ABTestingPage(Driver.driver);
-
-        landingPage.getLinkABTesting().click();
-        String abTestPageText = abTestingPage.getABTestPageText().getText();
-        Assert.assertEquals(abTestPageText, expectedPageText);
+        DriverManager.getDriver().findElement(By.xpath("//a[@href='/abtest']")).click();
+        String abTestPageText = DriverManager.getDriver().findElement(By.xpath("//p")).getText();
+        Assert.assertEquals(abTestPageText, "Also known as split testing. This is a way in which businesses are able to simultaneously test and learn different versions of a page to see which text and/or functionality works best towards a desired outcome (e.g. a user action such as a click-through).");
     }
 }
