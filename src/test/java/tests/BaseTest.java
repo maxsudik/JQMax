@@ -17,12 +17,12 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void setUp() throws IOException {
+    protected void setUp() throws Exception {
         Driver.initializeDriver();
     }
 
     @AfterMethod
-    public void tearDown() {
+    protected void tearDown() {
         Driver.quitDriver();
     }
 
