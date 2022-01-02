@@ -24,7 +24,8 @@ public class Driver {
             options.addArguments("--disable-gpu");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--headless");
+            //TODO Implement headless mode only for the server runs
+            //options.addArguments("--headless");
 
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(options);
