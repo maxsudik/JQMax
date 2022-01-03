@@ -1,5 +1,6 @@
 package pages;
 
+import enums.WaitStrategy;
 import org.openqa.selenium.By;
 
 public final class OrangeHRMLoginPage extends BasePage {
@@ -10,17 +11,17 @@ public final class OrangeHRMLoginPage extends BasePage {
 
 
     public OrangeHRMLoginPage enterUserName(String username) {
-        sendKeys(usernameField, username, "present");
+        sendKeys(usernameField, username, WaitStrategy.PRESENCE);
         return this;
     }
 
     public OrangeHRMLoginPage enterPassword(String password) {
-        sendKeys(passwordField, password, "present");
+        sendKeys(passwordField, password, WaitStrategy.PRESENCE);
         return this;
     }
 
     public OrangeHRMHomePage clickLoginButton() {
-        click(loginButton, "present");
+        click(loginButton, WaitStrategy.PRESENCE);
         return new OrangeHRMHomePage();
     }
 
