@@ -18,7 +18,7 @@ public final class ReadPropertyFile {
             property.load(fileInputStream);
 
             for (Map.Entry<Object, Object> entry : property.entrySet()) {
-                CONFIG_MAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
+                CONFIG_MAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()).trim());
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -6,8 +6,7 @@
     </listeners>
     <test name="Test" thread-count="2"  parallel="methods">
         <classes>
-            <class name="tests.HomePageTest"></class>
-            <class name="tests.ABTestingTest"></class>
+        <class name="tests.OrangeHRMAuthTest"></class>
         </classes>
     </test>
 </suite>
