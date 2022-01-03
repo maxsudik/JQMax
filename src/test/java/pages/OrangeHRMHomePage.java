@@ -1,5 +1,6 @@
 package pages;
 
+import enums.WaitStrategy;
 import org.openqa.selenium.By;
 
 public final class OrangeHRMHomePage extends BasePage {
@@ -8,12 +9,12 @@ public final class OrangeHRMHomePage extends BasePage {
     private final By logoutMenu = By.xpath("//a[text()='Logout']");
 
     public OrangeHRMHomePage clickWelcome() {
-        click(welcomeDropDownList, "present");
+        click(welcomeDropDownList, WaitStrategy.PRESENCE);
         return this;
     }
 
     public OrangeHRMLoginPage clickLogout() {
-        click(logoutMenu, "clickable");
+        click(logoutMenu, WaitStrategy.CLICKABLE);
         return new OrangeHRMLoginPage();
     }
 }

@@ -1,11 +1,12 @@
 package driver;
 
+import enums.ConfigProperties;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import utils.ReadPropertyFile;
+import utils.PropertyUtils;
 
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -31,7 +32,7 @@ public final class Driver {
 
             //TODO replace deprecated implicitlyWait
             DriverManager.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            DriverManager.getDriver().get(ReadPropertyFile.get("url"));
+            DriverManager.getDriver().get(PropertyUtils.get(ConfigProperties.URL));
             log.info("driver.Driver successfully initialized");
 
         }
