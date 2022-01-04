@@ -6,7 +6,10 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import reports.ExtentReport;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +17,16 @@ import java.io.IOException;
 public class BaseTest {
 
     protected BaseTest() {
+    }
+
+    @BeforeSuite
+    public void beforeSuite() {
+        ExtentReport.initReport();
+    }
+
+    @AfterSuite
+    public void afterSuite() throws IOException {
+        ExtentReport.flushReports();
     }
 
     @BeforeMethod
