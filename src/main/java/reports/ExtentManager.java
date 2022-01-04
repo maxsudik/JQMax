@@ -8,15 +8,15 @@ public final class ExtentManager {
     private ExtentManager() {
     }
 
-    public static ExtentTest getExtentTest() {
+    static ExtentTest getExtentTest() {
         return extentTest.get();
     }
 
-    public static void setExtentTest(ExtentTest test) {
+    static void setExtentTest(ExtentTest test) {
         extentTest.set(test);
     }
 
-    public static void unload() {
+    static void unload() {
         extentTest.remove();
     }
 
