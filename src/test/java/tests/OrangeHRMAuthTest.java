@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.OrangeHRMLoginPage;
+import reports.ExtentReport;
 
 public final class OrangeHRMAuthTest extends BaseTest {
 
@@ -12,6 +13,7 @@ public final class OrangeHRMAuthTest extends BaseTest {
 
     @Test(dataProvider = "LoginTestDataProvider")
     public void loginTest(String username, String password) {
+        ExtentReport.createTest("loginTest");
         String title = new OrangeHRMLoginPage()
                 .enterUserName(username).enterPassword(password).clickLoginButton()
                 .clickWelcome().clickLogout()
