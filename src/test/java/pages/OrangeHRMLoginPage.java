@@ -2,7 +2,7 @@ package pages;
 
 import enums.WaitStrategy;
 import org.openqa.selenium.By;
-import reports.ExtentManager;
+import reports.ExtentLogger;
 
 public final class OrangeHRMLoginPage extends BasePage {
 
@@ -12,20 +12,17 @@ public final class OrangeHRMLoginPage extends BasePage {
 
 
     public OrangeHRMLoginPage enterUserName(String username) {
-        sendKeys(usernameField, username, WaitStrategy.PRESENCE);
-        ExtentManager.getExtentTest().pass("entered username");
+        sendKeys(usernameField, username, WaitStrategy.PRESENCE, usernameField.getClass().getName());
         return this;
     }
 
     public OrangeHRMLoginPage enterPassword(String password) {
-        sendKeys(passwordField, password, WaitStrategy.PRESENCE);
-        ExtentManager.getExtentTest().pass("entered password");
+        sendKeys(passwordField, password, WaitStrategy.PRESENCE, passwordField.getClass().getName());
         return this;
     }
 
     public OrangeHRMHomePage clickLoginButton() {
-        click(loginButton, WaitStrategy.PRESENCE);
-        ExtentManager.getExtentTest().pass("clicked login button");
+        click(loginButton, WaitStrategy.PRESENCE, loginButton.getClass().getName());
         return new OrangeHRMHomePage();
     }
 
