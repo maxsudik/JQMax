@@ -9,12 +9,12 @@ public final class OrangeHRMHomePage extends BasePage {
     private final By logoutMenu = By.xpath("//a[text()='Logout']");
 
     public OrangeHRMHomePage clickWelcome() throws Exception {
-        click(welcomeDropDownList, WaitStrategy.PRESENCE, welcomeDropDownList.getClass().getName());
+        click(welcomeDropDownList, WaitStrategy.PRESENCE, "Welcome button");
         return this;
     }
 
     public OrangeHRMLoginPage clickLogout() throws Exception {
-        click(logoutMenu, WaitStrategy.CLICKABLE, logoutMenu.getClass().getName());
+        click(logoutMenu, WaitStrategy.CLICKABLE, "Logout menu item");
         return new OrangeHRMLoginPage();
     }
 }

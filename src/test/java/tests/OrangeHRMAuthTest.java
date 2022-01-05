@@ -20,6 +20,16 @@ public final class OrangeHRMAuthTest extends BaseTest {
         Assertions.assertThat(title).isEqualTo("OrangeHRM");
     }
 
+    @Test(dataProvider = "LoginTestDataProvider")
+    public void newTest(String username, String password) throws Exception {
+        String title = new OrangeHRMLoginPage()
+                .enterUserName(username).enterPassword(password).clickLoginButton()
+                .clickWelcome().clickLogout()
+                .getTitle();
+
+        Assertions.assertThat(title).isEqualTo("OrangeHRM");
+    }
+
     @DataProvider(name = "LoginTestDataProvider", parallel = true)
     public Object[][] getData() {
         return new Object[][]{
