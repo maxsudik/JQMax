@@ -2,18 +2,14 @@ package driver;
 
 import enums.ConfigProperties;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import utils.JsonUtils;
 
 import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
 public final class Driver {
 
-    public static Logger log = LogManager.getLogger("logger");
     static ChromeOptions options = new ChromeOptions();
 
     private Driver() {
@@ -29,12 +25,7 @@ public final class Driver {
 
             WebDriverManager.chromedriver().setup();
             DriverManager.setDriver(new ChromeDriver(options));
-
-            //TODO replace deprecated implicitlyWait
-            DriverManager.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             DriverManager.getDriver().get(JsonUtils.get(ConfigProperties.URL));
-            log.info("driver.Driver successfully initialized");
-
         }
     }
 

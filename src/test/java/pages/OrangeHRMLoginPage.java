@@ -11,17 +11,17 @@ public final class OrangeHRMLoginPage extends BasePage {
 
 
     public OrangeHRMLoginPage enterUserName(String username) throws Exception {
-        sendKeys(usernameField, username, WaitStrategy.PRESENCE, usernameField.getClass().getName());
+        sendKeys(usernameField, username, WaitStrategy.PRESENCE, "Username field");
         return this;
     }
 
     public OrangeHRMLoginPage enterPassword(String password) throws Exception {
-        sendKeys(passwordField, password, WaitStrategy.PRESENCE, passwordField.getClass().getName());
+        sendKeys(passwordField, password, WaitStrategy.PRESENCE, "Password field");
         return this;
     }
 
     public OrangeHRMHomePage clickLoginButton() throws Exception {
-        click(loginButton, WaitStrategy.PRESENCE, loginButton.getClass().getName());
+        click(loginButton, WaitStrategy.PRESENCE, "Login button");
         return new OrangeHRMHomePage();
     }
 

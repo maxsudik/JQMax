@@ -3,5 +3,4 @@
 *.class
 target/
 *.DS_Store
-*.log
 extent-test-output/
