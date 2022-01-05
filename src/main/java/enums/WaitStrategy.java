@@ -5,5 +5,4 @@ public enum WaitStrategy {
     PRESENCE,
     VISIBLE,
     NONE
-
 }
