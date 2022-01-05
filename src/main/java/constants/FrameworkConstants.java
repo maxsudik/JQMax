@@ -11,9 +11,19 @@ public final class FrameworkConstants {
     private static final String JSON_CONFIG_FILE_PATH = RESOURCE_FILE_PATH + "/config/config.json";
     private static final String EXTENT_REPORT_FOLDER_PATH = System.getProperty("user.dir") + "/extent-test-output/";
     private static final String EXCEL_PATH = RESOURCE_FILE_PATH + "/excel/testdata.xlsx";
+    private static final String RUN_MANAGER_SHEET = "RUNMANAGER";
+    private static final String ITERATION_DATA_SHEET = "DATA";
     private static String extentReportFilePath = "";
 
     private FrameworkConstants() {
+    }
+
+    public static String getRunManagerSheet() {
+        return RUN_MANAGER_SHEET;
+    }
+
+    public static String getIterationDataSheet() {
+        return ITERATION_DATA_SHEET;
     }
 
     public static String getExcelPath() {

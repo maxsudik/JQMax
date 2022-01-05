@@ -4,6 +4,7 @@
     <listeners>
         <listener class-name="listeners.ListenersClass"></listener>
         <listener class-name="listeners.MethodInterceptor"></listener>
+        <listener class-name="listeners.AnnotationTransformer"></listener>
     </listeners>
     <test name="Test" thread-count="1" parallel="methods">
         <classes>
