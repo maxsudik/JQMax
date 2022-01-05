@@ -46,5 +46,4 @@ public final class FrameworkConstants {
             return EXTENT_REPORT_FOLDER_PATH + "/index.html";
         }
     }
-
 }

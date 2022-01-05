@@ -16,9 +16,7 @@ public final class ExcelUtils {
     private ExcelUtils() {
     }
 
-    public static List<Map<String, String>> getTestDetails() {
-
-        String sheetName = "RUNMANAGER";
+    public static List<Map<String, String>> getTestDetails(String sheetName) {
 
         List<Map<String, String>> list = null;
         try (FileInputStream fileInputStream = new FileInputStream(FrameworkConstants.getExcelPath())) {

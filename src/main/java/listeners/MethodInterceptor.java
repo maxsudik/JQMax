@@ -13,7 +13,7 @@ public final class MethodInterceptor implements IMethodInterceptor {
 
     @Override
     public List<IMethodInstance> intercept(List<IMethodInstance> methods, ITestContext context) {
-        List<Map<String, String>> list = ExcelUtils.getTestDetails();
+        List<Map<String, String>> list = ExcelUtils.getTestDetails("RUNMANAGER");
         List<IMethodInstance> result = new ArrayList<>();
 
         for (int i = 0; i < methods.size(); i++) {
@@ -25,7 +25,6 @@ public final class MethodInterceptor implements IMethodInterceptor {
                         methods.get(i).getMethod().setPriority(Integer.parseInt(list.get(j).get("priority")));
                         result.add(methods.get(i));
                     }
-
                 }
             }
         }
