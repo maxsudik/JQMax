@@ -10,10 +10,14 @@ public final class FrameworkConstants {
     private static final String CONFIG_FILE_PATH = RESOURCE_FILE_PATH + "/config/config.properties";
     private static final String JSON_CONFIG_FILE_PATH = RESOURCE_FILE_PATH + "/config/config.json";
     private static final String EXTENT_REPORT_FOLDER_PATH = System.getProperty("user.dir") + "/extent-test-output/";
+    private static final String EXCEL_PATH = RESOURCE_FILE_PATH + "/excel/testdata.xlsx";
     private static String extentReportFilePath = "";
 
-
     private FrameworkConstants() {
+    }
+
+    public static String getExcelPath() {
+        return EXCEL_PATH;
     }
 
     public static int getExplicitWait() {
