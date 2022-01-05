@@ -8,6 +8,11 @@ import pages.OrangeHRMLoginPage;
 
 public final class OrangeHRMAuthTest extends BaseTest {
 
+    /**
+     * This Test class will not be executed due to implemented AnnotationTransformer which pulls data from the excel spreadsheet
+     * This test is using hardcoded parameters for @Test which include class @DataProvider and implementation of RetryAnalyzer
+     */
+
     private OrangeHRMAuthTest() {
     }
 
