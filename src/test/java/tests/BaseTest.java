@@ -10,16 +10,17 @@ import org.testng.annotations.BeforeMethod;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 public class BaseTest {
 
     protected BaseTest() {
     }
 
-
     @BeforeMethod
-    protected void setUp() throws Exception {
-        Driver.initializeDriver();
+    protected void setUp(Object[] data) throws Exception {
+        Map<String, String> map = (Map<String, String>) data[0];
+        Driver.initializeDriver(map.get("browser"));
     }
 
     @AfterMethod

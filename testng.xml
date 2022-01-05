@@ -6,7 +6,7 @@
         <listener class-name="listeners.MethodInterceptor"></listener>
         <listener class-name="listeners.AnnotationTransformer"></listener>
     </listeners>
-    <test name="Test" thread-count="1" parallel="methods">
+    <test name="Test" thread-count="2" parallel="methods">
         <classes>
             <class name="tests.OrangeHRMAuthTest"></class>
             <class name="tests.OrangeHRMAuthExcelDataFetchTest"></class>

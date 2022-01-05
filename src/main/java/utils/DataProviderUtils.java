@@ -10,7 +10,7 @@ public final class DataProviderUtils {
     private DataProviderUtils() {
     }
 
-    @DataProvider
+    @DataProvider(parallel = true)
     public static Iterator<Object[]> getData(Method method) {
         String testName = method.getName();
         List<Map<String, String>> listOfTests = ExcelUtils.getTestDetails(FrameworkConstants.getIterationDataSheet());
