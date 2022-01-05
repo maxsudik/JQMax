@@ -8,6 +8,7 @@ import reports.ExtentLogger;
 import reports.ExtentReport;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class ListenersClass implements ITestListener, ISuiteListener {
 
@@ -45,6 +46,8 @@ public class ListenersClass implements ITestListener, ISuiteListener {
     public void onTestFailure(ITestResult result) {
         try {
             ExtentLogger.fail(result.getMethod().getMethodName() + "is failed", true);
+            ExtentLogger.fail(result.getThrowable().toString());
+            ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
         } catch (Exception e) {
             e.printStackTrace();
         }
