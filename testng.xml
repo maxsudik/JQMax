@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" data-provider-thread-count="2">
+<suite name="All Test Suite" data-provider-thread-count="1">
     <listeners>
         <listener class-name="listeners.ListenersClass"></listener>
         <listener class-name="listeners.MethodInterceptor"></listener>
     </listeners>
-    <test name="Test" thread-count="2" parallel="methods">
+    <test name="Test" thread-count="1" parallel="methods">
         <classes>
             <class name="tests.OrangeHRMAuthTest"></class>
+            <class name="tests.OrangeHRMAuthExcelDataFetchTest"></class>
         </classes>
     </test>
 </suite>
