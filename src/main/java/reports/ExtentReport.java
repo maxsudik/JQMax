@@ -4,10 +4,10 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import constants.FrameworkConstants;
 
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 import java.util.Objects;
 
 public final class ExtentReport {
@@ -17,10 +17,10 @@ public final class ExtentReport {
     private ExtentReport() {
     }
 
-    public static void initReport() {
+    public static void initReport() throws Exception {
         if (Objects.isNull(extent)) {
             extent = new ExtentReports();
-            ExtentSparkReporter spark = new ExtentSparkReporter("index.html");
+            ExtentSparkReporter spark = new ExtentSparkReporter(FrameworkConstants.getExtentReportFilePath());
             extent.attachReporter(spark);
             spark.config().setTheme(Theme.DARK);
             spark.config().setDocumentTitle("JQMax Report");
@@ -28,11 +28,11 @@ public final class ExtentReport {
         }
     }
 
-    public static void flushReports() throws IOException {
+    public static void flushReports() throws Exception {
         if (Objects.nonNull(extent)) {
             extent.flush();
         }
-        Desktop.getDesktop().browse(new File("index.html").toURI());
+        Desktop.getDesktop().browse(new File(FrameworkConstants.getExtentReportFilePath()).toURI());
     }
 
     public static void createTest(String testCaseName) {
