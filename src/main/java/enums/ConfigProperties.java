@@ -2,5 +2,9 @@ package enums;
 
 public enum ConfigProperties {
     URL,
+    OVERRIDEREPORTS,
+    PASSEDSTEPSSCREENSHOT,
+    FAILEDSTEPSSCREENSHOT,
+    SKIPPEDSTEPSSCREENSHOT,
     BROWSER
 }
