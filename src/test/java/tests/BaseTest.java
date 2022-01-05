@@ -16,6 +16,7 @@ public class BaseTest {
     protected BaseTest() {
     }
 
+
     @BeforeMethod
     protected void setUp() throws Exception {
         Driver.initializeDriver();

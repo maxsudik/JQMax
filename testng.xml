@@ -2,11 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" data-provider-thread-count="2">
     <listeners>
-        <listener class-name="screenshot.Listeners"></listener>
+        <listener class-name="listeners.ListenersClass"></listener>
     </listeners>
-    <test name="Test" thread-count="2"  parallel="methods">
+    <test name="Test" thread-count="2" parallel="methods">
         <classes>
-        <class name="tests.OrangeHRMAuthTest"></class>
+            <class name="tests.OrangeHRMAuthTest"></class>
         </classes>
     </test>
 </suite>

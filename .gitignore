@@ -4,4 +4,4 @@
 target/
 *.DS_Store
 *.log
-reports/
+extent-test-output/

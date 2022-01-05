@@ -11,7 +11,7 @@ public final class OrangeHRMAuthTest extends BaseTest {
     }
 
     @Test(dataProvider = "LoginTestDataProvider")
-    public void loginTest(String username, String password) {
+    public void loginTest(String username, String password) throws Exception {
         String title = new OrangeHRMLoginPage()
                 .enterUserName(username).enterPassword(password).clickLoginButton()
                 .clickWelcome().clickLogout()
