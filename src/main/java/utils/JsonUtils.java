@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import constants.FrameworkConstants;
 import enums.ConfigProperties;
+import exceptions.JsonFileUsageException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,9 +33,9 @@ public class JsonUtils {
     private JsonUtils() {
     }
 
-    public static String get(ConfigProperties key) throws Exception {
+    public static String get(ConfigProperties key) {
         if (Objects.isNull(key) || Objects.isNull(CONFIG_MAP.get(key.name().toLowerCase(Locale.ROOT)))) {
-            throw new Exception("Property name " + key + " is not found. Please check config.properties");
+            throw new JsonFileUsageException("Property name " + key + " is not found. Please check config.properties");
         }
         return CONFIG_MAP.get(key.name().toLowerCase(Locale.ROOT));
     }

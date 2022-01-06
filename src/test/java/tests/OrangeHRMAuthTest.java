@@ -25,7 +25,7 @@ public final class OrangeHRMAuthTest extends BaseTest {
     }
 
     @Test(dataProvider = "LoginTestDataProvider", retryAnalyzer = RetryFailedTests.class)
-    public void loginTest(String username, String password) throws Exception {
+    public void loginTest(String username, String password) {
         String title = new OrangeHRMLoginPage()
                 .enterUserName(username).enterPassword(password).clickLoginButton()
                 .clickWelcome().clickLogout()
@@ -35,7 +35,7 @@ public final class OrangeHRMAuthTest extends BaseTest {
     }
 
     @Test(dataProvider = "LoginTestDataProvider", retryAnalyzer = RetryFailedTests.class)
-    public void newTest(String username, String password) throws Exception {
+    public void newTest(String username, String password) {
         String title = new OrangeHRMLoginPage()
                 .enterUserName(username).enterPassword(password).clickLoginButton()
                 .clickWelcome().clickLogout()

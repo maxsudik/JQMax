@@ -9,6 +9,7 @@ import enums.CategoryType;
 
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.util.Objects;
 
 public final class ExtentReport {
@@ -18,7 +19,7 @@ public final class ExtentReport {
     private ExtentReport() {
     }
 
-    public static void initReport() throws Exception {
+    public static void initReport() {
         if (Objects.isNull(extent)) {
             extent = new ExtentReports();
             ExtentSparkReporter spark = new ExtentSparkReporter(FrameworkConstants.getExtentReportFilePath());
@@ -29,12 +30,16 @@ public final class ExtentReport {
         }
     }
 
-    public static void flushReports() throws Exception {
+    public static void flushReports() {
         if (Objects.nonNull(extent)) {
             extent.flush();
         }
         ExtentManager.unload();
-        Desktop.getDesktop().browse(new File(FrameworkConstants.getExtentReportFilePath()).toURI());
+        try {
+            Desktop.getDesktop().browse(new File(FrameworkConstants.getExtentReportFilePath()).toURI());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void createTest(String testCaseName) {
