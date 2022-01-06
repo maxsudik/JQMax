@@ -1,10 +1,10 @@
 package tests;
 
-import listeners.RetryFailedTests;
+import annotations.FrameworkAnnotation;
+import enums.CategoryType;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 import pages.OrangeHRMLoginPage;
-import utils.DataProviderUtils;
 
 import java.util.Map;
 
@@ -13,6 +13,7 @@ public final class OrangeHRMAuthExcelDataFetchTest extends BaseTest {
     private OrangeHRMAuthExcelDataFetchTest() {
     }
 
+    @FrameworkAnnotation(author = {"Max Sudik", "John Doe"}, category = CategoryType.SMOKE)
     @Test
     public void loginTestUsingExcelData(Map<String, String> data) throws Exception {
         String title = new OrangeHRMLoginPage()
@@ -23,6 +24,7 @@ public final class OrangeHRMAuthExcelDataFetchTest extends BaseTest {
         Assertions.assertThat(title).isEqualTo("OrangeHRM");
     }
 
+    @FrameworkAnnotation(author = "John Doe", category = {CategoryType.SMOKE, CategoryType.REGRESSION})
     @Test
     public void newTestUsingExcelData(Map<String, String> data) throws Exception {
         String title = new OrangeHRMLoginPage()
