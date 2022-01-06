@@ -16,7 +16,7 @@ public final class Driver {
     private Driver() {
     }
 
-    public static void initializeDriver(String browser) throws Exception {
+    public static void initializeDriver(String browser) {
         if (Objects.isNull(DriverManager.getDriver())) {
             if (browser.equalsIgnoreCase("chrome")) {
                 options.addArguments("--disable-gpu");

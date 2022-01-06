@@ -1,10 +1,12 @@
 package utils;
 
 import constants.FrameworkConstants;
+import exceptions.InvalidPathForExcelException;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +20,7 @@ public final class ExcelUtils {
 
     public static List<Map<String, String>> getTestDetails(String sheetName) {
 
-        List<Map<String, String>> list = null;
+        List<Map<String, String>> list;
         try (FileInputStream fileInputStream = new FileInputStream(FrameworkConstants.getExcelPath())) {
             XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
             XSSFSheet sheet = workbook.getSheet(sheetName);
@@ -37,8 +39,13 @@ public final class ExcelUtils {
                 }
                 list.add(map);
             }
+        } catch (FileNotFoundException e) {
+            StackTraceElement[] a = e.getStackTrace();
+            a[0] = new StackTraceElement("utils.ExcelUtils", "getTestDetails", "ExcelUtils.java", 23);
+            e.setStackTrace(a);
+            throw new InvalidPathForExcelException("Excel file you trying to read is not found", e);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Some IO exception happened while reading excel file");
         }
         System.out.println(list);
         return list;

@@ -15,7 +15,7 @@ public final class OrangeHRMAuthExcelDataFetchTest extends BaseTest {
 
     @FrameworkAnnotation(author = {"Max Sudik", "John Doe"}, category = CategoryType.SMOKE)
     @Test
-    public void loginTestUsingExcelData(Map<String, String> data) throws Exception {
+    public void loginTestUsingExcelData(Map<String, String> data) {
         String title = new OrangeHRMLoginPage()
                 .enterUserName(data.get("username")).enterPassword(data.get("password")).clickLoginButton()
                 .clickWelcome().clickLogout()
@@ -26,7 +26,7 @@ public final class OrangeHRMAuthExcelDataFetchTest extends BaseTest {
 
     @FrameworkAnnotation(author = "John Doe", category = {CategoryType.SMOKE, CategoryType.REGRESSION})
     @Test
-    public void newTestUsingExcelData(Map<String, String> data) throws Exception {
+    public void newTestUsingExcelData(Map<String, String> data) {
         String title = new OrangeHRMLoginPage()
                 .enterUserName(data.get("username")).enterPassword(data.get("password")).clickLoginButton()
                 .clickWelcome().clickLogout()

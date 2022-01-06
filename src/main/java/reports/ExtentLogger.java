@@ -21,7 +21,7 @@ public final class ExtentLogger {
         ExtentManager.getExtentTest().skip(message);
     }
 
-    public static void pass(String message, boolean isScreenshotNeeded) throws Exception {
+    public static void pass(String message, boolean isScreenshotNeeded) {
         if (PropertyUtils.get(ConfigProperties.PASSEDSTEPSSCREENSHOT).equalsIgnoreCase("yes") && isScreenshotNeeded) {
             ExtentManager.getExtentTest().pass(message, MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotUtils.getBase64Image()).build());
         } else {
@@ -29,7 +29,7 @@ public final class ExtentLogger {
         }
     }
 
-    public static void fail(String message, boolean isScreenshotNeeded) throws Exception {
+    public static void fail(String message, boolean isScreenshotNeeded) {
         if (PropertyUtils.get(ConfigProperties.FAILEDSTEPSSCREENSHOT).equalsIgnoreCase("yes") && isScreenshotNeeded) {
             ExtentManager.getExtentTest().fail(message, MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotUtils.getBase64Image()).build());
         } else {
@@ -37,7 +37,7 @@ public final class ExtentLogger {
         }
     }
 
-    public static void skip(String message, boolean isScreenshotNeeded) throws Exception {
+    public static void skip(String message, boolean isScreenshotNeeded) {
         if (PropertyUtils.get(ConfigProperties.SKIPPEDSTEPSSCREENSHOT).equalsIgnoreCase("yes") && isScreenshotNeeded) {
             ExtentManager.getExtentTest().fail(message, MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotUtils.getBase64Image()).build());
         } else {
