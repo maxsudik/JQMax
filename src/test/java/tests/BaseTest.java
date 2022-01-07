@@ -14,7 +14,7 @@ public class BaseTest {
     @BeforeMethod
     protected void setUp(Object[] data) {
         Map<String, String> map = (Map<String, String>) data[0];
-        Driver.initializeDriver(map.get("browser"));
+        Driver.initializeDriver(map.get("browser"), map.get("version"));
     }
 
     @AfterMethod
