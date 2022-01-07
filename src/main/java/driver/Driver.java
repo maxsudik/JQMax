@@ -1,38 +1,26 @@
 package driver;
 
 import enums.ConfigProperties;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import exceptions.BrowserInvocationFailedException;
+import factories.DriverFactory;
 import utils.JsonUtils;
 
+import java.net.MalformedURLException;
 import java.util.Objects;
 
 public final class Driver {
 
-    static ChromeOptions options = new ChromeOptions();
-
     private Driver() {
     }
 
-    public static void initializeDriver(String browser) {
+    public static void initializeDriver(String browser, String version) {
         if (Objects.isNull(DriverManager.getDriver())) {
-            if (browser.equalsIgnoreCase("chrome")) {
-                options.addArguments("--disable-gpu");
-                options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-                //TODO Implement headless mode only for the server runs
-                //options.addArguments("--headless");
-
-                WebDriverManager.chromedriver().setup();
-                DriverManager.setDriver(new ChromeDriver(options));
-                DriverManager.getDriver().get(JsonUtils.get(ConfigProperties.URL));
-            } else if (browser.equalsIgnoreCase("firefox")) {
-                WebDriverManager.firefoxdriver().setup();
-                DriverManager.setDriver(new FirefoxDriver());
-                DriverManager.getDriver().get(JsonUtils.get(ConfigProperties.URL));
+            try {
+                DriverManager.setDriver(DriverFactory.getDriver(browser, version));
+            } catch (MalformedURLException e) {
+                throw new BrowserInvocationFailedException("Browser invocation failed. Please check the capabilities", e);
             }
+            DriverManager.getDriver().get(JsonUtils.get(ConfigProperties.URL));
         }
     }
 
