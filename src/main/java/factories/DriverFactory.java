@@ -39,10 +39,10 @@ public final class DriverFactory {
                 capabilities.setBrowserName(BrowserType.FIREFOX);
                 capabilities.setVersion(version);
                 driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+            } else {
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
             }
-        } else {
-            WebDriverManager.chromedriver().setup();
-            driver = new FirefoxDriver();
         }
         return driver;
     }
