@@ -8,5 +8,6 @@ public enum ConfigProperties {
     SKIPPEDSTEPSSCREENSHOT,
     RETRYFAILEDTESTS,
     RUNMODE,
+    SENDRESULTSTOELK,
     BROWSER
 }
