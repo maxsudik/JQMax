@@ -3,7 +3,7 @@ package driver;
 import enums.ConfigProperties;
 import exceptions.BrowserInvocationFailedException;
 import factories.DriverFactory;
-import utils.JsonUtils;
+import utils.PropertyUtils;
 
 import java.net.MalformedURLException;
 import java.util.Objects;
@@ -20,7 +20,7 @@ public final class Driver {
             } catch (MalformedURLException e) {
                 throw new BrowserInvocationFailedException("Browser invocation failed. Please check the capabilities", e);
             }
-            DriverManager.getDriver().get(JsonUtils.get(ConfigProperties.URL));
+            DriverManager.getDriver().get(PropertyUtils.get(ConfigProperties.URL));
         }
     }
 
