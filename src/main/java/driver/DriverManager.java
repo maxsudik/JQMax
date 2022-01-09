@@ -2,6 +2,8 @@ package driver;
 
 import org.openqa.selenium.WebDriver;
 
+import java.util.Objects;
+
 public final class DriverManager {
 
     private static ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
@@ -13,11 +15,13 @@ public final class DriverManager {
         return driverThreadLocal.get();
     }
 
-    public static void setDriver(WebDriver driverThreadLocalRef) {
-        driverThreadLocal.set(driverThreadLocalRef);
+    static void setDriver(WebDriver driverThreadLocalRef) {
+        if (Objects.nonNull(driverThreadLocalRef)) {
+            driverThreadLocal.set(driverThreadLocalRef);
+        }
     }
 
-    public static void unload() {
+    static void unload() {
         driverThreadLocal.remove();
     }
 }

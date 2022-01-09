@@ -25,7 +25,7 @@ public final class ELKUtils {
                     .log()
                     .all()
                     .body(map)
-                    .post("http://localhost:9200/regression/results");
+                    .post(PropertyUtils.get(ConfigProperties.ELASTICSEARCHURL));
 
             Assert.assertEquals(response.statusCode(), 201);
             response.prettyPrint();
