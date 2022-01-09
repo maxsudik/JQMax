@@ -2,6 +2,8 @@ package reports;
 
 import com.aventstack.extentreports.ExtentTest;
 
+import java.util.Objects;
+
 public final class ExtentManager {
     private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
@@ -13,7 +15,9 @@ public final class ExtentManager {
     }
 
     static void setExtentTest(ExtentTest test) {
-        extentTest.set(test);
+        if (Objects.nonNull(test)) {
+            extentTest.set(test);
+        }
     }
 
     static void unload() {

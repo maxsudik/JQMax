@@ -2,6 +2,8 @@ package enums;
 
 public enum ConfigProperties {
     URL,
+    SELENIUMGRIDURL,
+    ELASTICSEARCHURL,
     OVERRIDEREPORTS,
     PASSEDSTEPSSCREENSHOT,
     FAILEDSTEPSSCREENSHOT,

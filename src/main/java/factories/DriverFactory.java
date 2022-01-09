@@ -28,7 +28,7 @@ public final class DriverFactory {
                 DesiredCapabilities capabilities = new DesiredCapabilities();
                 capabilities.setBrowserName(BrowserType.CHROME);
                 capabilities.setVersion(version);
-                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+                driver = new RemoteWebDriver(new URL(PropertyUtils.get(ConfigProperties.SELENIUMGRIDURL)), capabilities);
             } else {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
@@ -38,7 +38,7 @@ public final class DriverFactory {
                 DesiredCapabilities capabilities = new DesiredCapabilities();
                 capabilities.setBrowserName(BrowserType.FIREFOX);
                 capabilities.setVersion(version);
-                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+                driver = new RemoteWebDriver(new URL(PropertyUtils.get(ConfigProperties.SELENIUMGRIDURL)), capabilities);
             } else {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
