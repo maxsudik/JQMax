@@ -3,6 +3,9 @@ package constants;
 import enums.ConfigProperties;
 import utils.PropertyUtils;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
 public final class FrameworkConstants {
 
     private static final int EXPLICIT_WAIT = 3;
@@ -51,7 +54,7 @@ public final class FrameworkConstants {
 
     private static String createReportPath() {
         if (PropertyUtils.get(ConfigProperties.OVERRIDEREPORTS).equalsIgnoreCase("no")) {
-            return EXTENT_REPORT_FOLDER_PATH + System.currentTimeMillis() + "/index.html";
+            return EXTENT_REPORT_FOLDER_PATH + LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS) + "/index.html";
         } else {
             return EXTENT_REPORT_FOLDER_PATH + "/index.html";
         }
