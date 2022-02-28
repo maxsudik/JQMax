@@ -19,7 +19,7 @@
 
 ## UML Diagram:
 
-![UML](/Users/maxsudik/IdeaProjects/JQMax/readmeImages/img.png)
+![img.png](readmeImages/img.png)
 
 ## File/Package description:
 1. **/.github** - runs github actions
@@ -54,10 +54,10 @@
 
 NOTE: For parallel execution change parameters in testng.xml for **data-provider-thread-count="1"** and **thread-count="1"** to desired
 
-![test_result_1](/Users/maxsudik/IdeaProjects/JQMax/readmeImages/img_1.png)
-![test_result_2](/Users/maxsudik/IdeaProjects/JQMax/readmeImages/img_2.png)
-![test_result_3](/Users/maxsudik/IdeaProjects/JQMax/readmeImages/img_3.png)
-![test_result_4](/Users/maxsudik/IdeaProjects/JQMax/readmeImages/img_4.png)
+![img_1.png](readmeImages/img_1.png)
+![img_2.png](readmeImages/img_2.png)
+![img_3.png](readmeImages/img_3.png)
+![img_4.png](readmeImages/img_4.png)
 
 ### Docker container using Selenium Grid
 1. In /src/test/resources/config/config.properties set: ```runmode=remote```; ```sendresultstoelk=yes```;
@@ -70,16 +70,16 @@ NOTE: For parallel execution change parameters in testng.xml for **data-provider
 7. In terminal from project folder run command ```mvn clean test```
 8. To check runs is Selenium Grid - navigate to URL Open [Selenium-Grid](http://localhost:4444/ui/index.html#/)
 9. Results will be opened in the new browser tab
-![test_result_1](/Users/maxsudik/IdeaProjects/JQMax/readmeImages/img_1.png)
-![test_result_2](/Users/maxsudik/IdeaProjects/JQMax/readmeImages/img_2.png)
-![test_result_3](/Users/maxsudik/IdeaProjects/JQMax/readmeImages/img_3.png)
-![test_result_4](/Users/maxsudik/IdeaProjects/JQMax/readmeImages/img_4.png)
+![img_1.png](readmeImages/img_1.png)
+![img_2.png](readmeImages/img_2.png)
+![img_3.png](readmeImages/img_3.png)
+![img_4.png](readmeImages/img_4.png)
 10. To check results in Kibana - navigate to URL [Kibana](http://localhost:5601/) -> Stack Management -> Index Patterns and create index patter for "regression"
-![kibana_result_1](/Users/maxsudik/IdeaProjects/JQMax/readmeImages/img_6.png)
+![img_6.png](readmeImages/img_6.png)
 11. To create visualizations navigate to "Visualize Library" and create diagrams
-![kibana_result_1](/Users/maxsudik/IdeaProjects/JQMax/readmeImages/img_7.png)
+![img_7.png](readmeImages/img_7.png)
 12. Add the visualization to a Dashboard
-![kibana_result_1](/Users/maxsudik/IdeaProjects/JQMax/readmeImages/img_8.png)
+![img_8.png](readmeImages/img_8.png)
 
 NOTE: For parallel execution change parameters in testng.xml for **data-provider-thread-count="1"** and **thread-count="1"** to desired
 
