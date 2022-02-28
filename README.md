@@ -18,6 +18,7 @@
 14. **rest-assured** - Send results to ELK
 
 ## UML Diagram:
+
 ![UML](/Users/maxsudik/IdeaProjects/JQMax/readmeImages/img.png)
 
 ## File/Package description:
